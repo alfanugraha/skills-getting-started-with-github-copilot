@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mergington High School Activities</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .activity-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fafafa;
+        }
+        .activity-card h2 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+        .activity-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .participants {
+            margin-top: 10px;
+        }
+        .participants ul {
+            padding-left: 20px;
+        }
+        .participants li {
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mergington High School Activities</h1>
+        <div id="activities"></div>
+    </div>
+    <script>
+        const activities = {
+            "Chess Club": {
+                "description": "Learn strategies and compete in chess tournaments",
+                "schedule": "Fridays, 3:30 PM - 5:00 PM",
+                "participants": ["michael@mergington.edu", "daniel@mergington.edu"]
+            },
+            "Programming Class": {
+                "description": "Learn programming fundamentals and build software projects",
+                "schedule": "Tuesdays and Thursdays, 3:30 PM - 4:30 PM",
+                "participants": ["emma@mergington.edu", "sophia@mergington.edu"]
+            },
+            // ...existing activities...
+        };
+
+        const activitiesContainer = document.getElementById('activities');
+
+        for (const [name, details] of Object.entries(activities)) {
+            const card = document.createElement('div');
+            card.className = 'activity-card';
+
+            card.innerHTML = `
+                <h2>${name}</h2>
+                <p><strong>Description:</strong> ${details.description}</p>
+                <p><strong>Schedule:</strong> ${details.schedule}</p>
+                <div class="participants">
+                    <strong>Participants:</strong>
+                    <ul>
+                        ${details.participants.map(participant => `<li>${participant}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+
+            activitiesContainer.appendChild(card);
+        }
+    </script>
+</body>
+</html>
